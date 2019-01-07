@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+
+<div class="row">
+        <div class="col-lg-4">
+
+        </div>
+    <div class="col-lg-4">
+        <div class="card" style="width:100%">
+            <img class="card-img-top" src="{{ user.userprofile.profile_image.url }}" alt="Card image"  style="width:100%">
+            <div class="card-body">
+                <h4 class="card-title">{{ user }}</h4>
+                    <ul class="list-inline" id="courses">
+                        <li class="list-inline-item">
+                            <i class="fa fa-folder-open-o"></i> Network administrator
+                        </li>
+                    </ul>
+                    <p class="card-text">{{ user.userprofile.description }}</p>
+
+                <div class="address">								
+                    <ul class="w3-ul w3-small">
+                        <li><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ user.first_name}} {{ user.last_name}}</li>
+                        <li><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ user.email}}</li>
+                        <li><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ user.userprofile.city}}</li>
+                        <li><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ user.userprofile.phone}}</li>
+                        <li><i class="fa fa-calendar-o" aria-hidden="true"></i> {{ user.userprofile.website}}</li>
+                    </ul>
+                    </address>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock %}

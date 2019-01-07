@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block body %}
+<div class="container">
+    <div class="row">
+    <div class="col-md-12">
+        <div class="login-form">
+        <div class="main-div">
+        <div class="dropdown">    
+            <form method="post" >
+                {% csrf_token %}
+                {{ form.post }}     
+                <br>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+            <div class="dropdown-divider"></div>
+
+            <h2>{{ text }}</h2>
+            {% for post in posts %}
+                <h1>{{ post.post }}</h1>
+                <p>Post by {{post.user.get_full_name}} on {{post.created}}.</p>
+            {% endfor %}
+        </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <h2>Other People</h2>
+        {% for user in users %}
+            <a href="#">
+                <h3>{{ user.username }}</h3>
+            </a>
+        {% endfor %}
+    </div>
+    </div>
+
+</div>
+{% endblock %}
